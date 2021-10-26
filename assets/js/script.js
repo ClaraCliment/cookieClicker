@@ -118,7 +118,7 @@ let reset = () => {
         multi_x_fois.style.display = "none"
         credit = 0;
         coutMultiplier = 30;
-        coutAutoClick = 12;
+        coutAutoClick = 125;
         coutBonus = 250;
         clickPower = 1;
         clickSec = 1;
