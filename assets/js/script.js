@@ -71,7 +71,7 @@ let reset = () => {
     btnAutoClicker.disabled = "true"
     btnBonus.disabled = "true"
     score.innerHTML = 0
-    cps = document.getElementById("clicks_seconde")
+
     labelMultiplier.innerHTML = "Multiclick " + coutMultiplier;
     labelAutoClicker.innerHTML = "Autoclick " + coutAutoClick;
     labelBonus.innerHTML = "Bonus " + coutBonus;
@@ -87,7 +87,7 @@ let reset = () => {
     coutAutoClick = 120;
     coutBonus = 250;
     clickPower = 1;
-    clickSeconde = 1;
+    clickSec = 1;
     autocounter = 1
     multicounter = 1
     intervalId = null
@@ -108,8 +108,8 @@ const labelMultiplier = document.getElementById('multiplier_label');
 const labelAutoClicker = document.getElementById('autoclick_label');
 const labelBonus = document.getElementById("bonus_label")
 const timeleft = document.getElementById("timer_bonus")
-const xMulti = document.getElementById('x_multi')
-const xAuto = document.getElementById('x_auto')
+var xMulti = document.getElementById('x_multi')
+var xAuto = document.getElementById('x_auto')
 const btnMenu = document.getElementById("settings")
 
 //Compteur
