@@ -132,9 +132,9 @@ body {
             padding: 0 20px;
         }
         #rayon {
-            animation: rotation 2s infinite linear;
-            height: 200%;
-            width: 200%;
+            animation: rotation 50s infinite linear;
+            height: auto;
+            width: 140%;
             position: absolute;
             z-index: -1;
         }

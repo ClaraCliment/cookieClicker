@@ -18,25 +18,23 @@ let show = (score, btn, prix) => {
      * Increase start a setInterval to increase the click per seconds 
      * @param {Number} number - click per seconds
      */
-let increase = (number) => {
-    let x = setInterval(() => {
-        score.innerHTML = (credit = number + credit);
+let increase = () => {
+    setInterval(() => {
+        cookieClicker.click()
         show(credit, btnMultiplier, coutMultiplier);
         show(credit, btnAutoClicker, coutAutoClick);
         show(credit, btnBonus, coutBonus)
     }, 1000);
 }
-
 let finish = () => {
     clearInterval(intervalId);
     click_bonus = 0
 }
 let start = () => {
-
     intervalId = setInterval(bonus, 1000);
 }
 let bonus = () => {
-    timeleft.innerHTML = "Bonuse " + b + "s left"
+    timeleft.innerHTML = "Bonus " + b + "s left"
     b--
     if (b == 0) finish();
     else {
@@ -65,10 +63,10 @@ const timeleft = document.getElementById("timer_bonus")
 var click_bonus = 0
 var credit = 0;
 var coutMultiplier = 30;
-var coutAutoClick = 120;
-var coutBonus = 10;
+var coutAutoClick = 12;
+var coutBonus = 500;
 var click = 1;
-var clickSeconde = 1.5;
+var clickSeconde = 1;
 var intervalId = null
 var b = 30
 labelMultiplier.innerHTML = "Multiclick " + coutMultiplier;
@@ -94,10 +92,11 @@ btnMultiplier.addEventListener('click', () => {
 btnAutoClicker.addEventListener('click', () => {
     credit = credit - coutAutoClick;
     coutAutoClick = coutAutoClick * 2;
-    increase(clickSeconde);
+    increase();
     labelAutoClicker.innerHTML = "Autoclick " + coutAutoClick;
     cps.innerHTML = clickSeconde + " click/sec "
     clickSeconde++;
+
 })
 btnBonus.addEventListener("click", () => {
 
