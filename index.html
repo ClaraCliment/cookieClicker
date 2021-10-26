@@ -18,7 +18,7 @@
         <img id="logo" src="./assets/img/logo jarre.png" alt="Coockie clicker logo">
         <h2>Welcome to our game!</h2>
         <img id="settings" src="./assets/img/settings.svg" alt="settings">
-        <div id="menu_settings">
+        <div id="menu_settings" style="display: none;">
             <p>Audio on/off</p>
             <p>Reset game</p>
         </div>
@@ -31,8 +31,8 @@
                 <img id="star_2" src="./assets/img/etoile_2.svg" alt="star">
             </div>
             <div id="clicks_timer">
-                <p id="clicks_seconde">0 clicks/sec</p>
-                <p id="timer_bonus">bonus timer</p>
+                <p id="clicks_seconde" style="display:none">0 clicks/sec</p>
+                <p id="timer_bonus" style="display:none">bonus timer</p>
             </div>
             <div id="cookie_holder">
                 <img id="cookieClicker" src="./assets/img/cookie_1_test.svg" alt="cookie">
@@ -43,15 +43,15 @@
         <div id="buttons_holder">
             <!-- Attention !! changement des buttons en a avec img incluse!! -->
             <button title="bouton multiplier" class="bouton" id="multiplier" disabled>
-                <span class="x_fois">
-                    <p>x2</p>
+                <span class="x_fois"style="visibility: hidden;">
+                    <p id="x_multi" >x2</p>
                 </span>
                 <img src="./assets/img/store.svg" alt="multiplier icon">
                 <span id="multiplier_label">Multiplier</span>
             </button>
             <button title="bouton auto-clicker" class="bouton" id="auto-clicker" disabled>
-                <span class="x_fois">
-                    <p>x2</p>
+                <span class="x_fois" style="visibility: hidden;">
+                    <p id="x_auto">x2</p>
                 </span>
                 <img src="./assets/img/pointer.svg" alt="auto-click icon">
                 <span id="autoclick_label">Auto-click</span>
@@ -67,6 +67,7 @@
         <p>&copy;Samir, Ivan & Clara : all rights reserved</p>
     </footer>
     <script type="module" src="./assets/js/script.js"></script>
+
     <audio id="audio" src="./assets/audio/click.wav"></audio>
 
 </body>
