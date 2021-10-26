@@ -1,0 +1,213 @@
+// Reset basique
+*,
+*::before,
+*::after {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: inherit;
+}
+
+@import 'animate';
+// Colors
+:root {
+    --white: #fff;
+    --bleu_light: #e8f0f2;
+    --bleu_ciel: #a2dbfa;
+    --bleu: #39a2db;
+    --dark_bleu: #053742;
+    --beige: #deedf0;
+    --creme: #eed6c4;
+    --creme_choco: #a17272;
+    --chocolat: #6b4f4f;
+    --chocolat2: #6f3108;
+    --dark_choco: #483434;
+    --bleu_gris: #6f8d9e;
+}
+
+// Général
+body {
+    background: linear-gradient(var(--bleu_light), var(--bleu_ciel));
+    font-family: "Montserrat", sans-serif;
+    //Header ---------------------------------------------------------------------------
+    header {
+        //margin: 1rem;
+        text-align: center;
+        width: 90%;
+        margin: 1rem auto;
+        #logo {
+            text-align: center;
+            max-width: 40%;
+            margin-top: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--bleu);
+        }
+    }
+    h2 {
+        color: var(--bleu);
+        font-weight: 400;
+        padding-bottom: 0.4rem;
+    }
+    // Main-------------------------------------------------------------
+    // Counter & cookie
+    main {
+        display: flex;
+        //align-items: center;
+        flex-direction: column;
+        //margin: 50px 0px;
+    }
+    // Main : partie score / clicks par seconde / Visuel cookie
+    #score_and_counter {
+        padding-bottom: 1rem;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        #score_box {
+            max-height: 65%;
+            position: relative;
+            img {
+                position: absolute;
+            }
+            #star_1 {
+                height: 25px;
+                width: auto;
+                transform: rotate(45deg);
+                top: -8px;
+                left: 20px;
+            }
+            #star_2 {
+                height: 20px;
+                width: auto;
+                bottom: -10px;
+                right: 20px;
+            }
+            #score {
+                text-align: center;
+                font-size: 22px;
+                font-weight: 700;
+                color: var(--chocolat2);
+                //max-height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.2rem;
+                min-width: 260px;
+                margin: 0 auto;
+                border: 2px solid var(--bleu_ciel);
+                border-radius: 8px;
+                background-color: rgba($color: #ffffff, $alpha: 0.5);
+            }
+        }
+    }
+    #clicks_timer {
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        min-width: 260px;
+        //align-items: center;
+        #clicks_seconde {
+            font-size: 14px;
+            text-align: left;
+        }
+        #timer_bonus {
+            font-size: 14px;
+            text-align: right;
+        }
+    }
+    #cookie_holder {
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+        flex-direction: row;
+        position: relative;
+        height: 90%;
+        width: 90%;
+        #cookieClicker {
+            width: 70%;
+            height: auto;
+            padding: 0 20px;
+        }
+        #rayon {
+            animation: rotation 2s infinite linear;
+            height: 200%;
+            width: 200%;
+            position: absolute;
+            z-index: -1;
+        }
+    }
+    // Dans le main: partie boutons du jeu
+    #buttons_holder {
+        max-height: 30%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        .bouton {
+            color: var(--beige);
+            margin: 0.2rem;
+            padding: 0.6rem;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 12px;
+            width: 120px;
+        }
+    }
+    #multiplier,
+    #auto-clicker,
+    #bonus {
+        &:hover {
+            //filter: saturate(4);
+            opacity: 0.8;
+        }
+        &:focus {
+            //filter: saturate(4);
+            opacity: 0.8;
+        }
+        &:disabled {
+            opacity: 0.4;
+            //filter: grayscale(60%);
+        }
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        img {
+            padding-left: 2px;
+            padding-right: 10px;
+            height: 22px;
+            text-align: left;
+        }
+        span {
+            text-align: left;
+            margin-right: 5px;
+        }
+    }
+    #multiplier {
+        background-color: var(--dark_choco);
+    }
+    #auto-clicker {
+        background-color: var(--dark_bleu);
+    }
+    #bonus {
+        background-color: var(--chocolat2);
+    }
+    // Footer -------------------------
+    footer {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        p {
+            font-size: 12px;
+            margin-bottom: 0.8rem;
+        }
+    }
+}

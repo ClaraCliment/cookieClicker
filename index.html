@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie clicker game</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <!--<h1 id="main_title">Cookie-clicker</h1>-->
+        <img id="logo" src="./assets/img/logo jarre.png" alt="Coockie clicker logo">
+        <h2>Welcome to our game!</h2>
+    </header>
+    <main>
+        <div id="score_and_counter">
+            <div id="score_box">
+                <img id="star_1" src="./assets/img/etoile_1.svg" alt="star">
+                <p id="score">0</p>
+                <img id="star_2" src="./assets/img/etoile_2.svg" alt="star">
+            </div>
+            <div id="clicks_timer">
+                <p id="clicks_seconde">0 clicks/sec</p>
+                <p id="timer_bonus">bonus timer</p>
+            </div>
+            <div id="cookie_holder">
+                <img id="cookieClicker" src="./assets/img/cookie_1_test.svg" alt="cookie">
+                <img id="rayon" src="./assets/img/rayons.png" alt="rayon">
+            </div>
+
+        </div>
+        <div id="buttons_holder">
+            <!-- Attention !! changement des buttons en a avec img incluse!! -->
+            <button title="bouton multiplier" class="bouton" id="multiplier" disabled>
+                <img src="./assets/img/store.svg" alt="multiplier icon">
+                <span id="multiplier_label">Multiplier</span>
+            </button>
+            <button title="bouton auto-clicker" class="bouton" id="auto-clicker" disabled>
+                <img src="./assets/img/pointer.svg" alt="auto-click icon">
+                <span id="autoclick_label">Auto-click</span>
+            </button>
+            <button title="bouton bonus" class="bouton" id="bonus" disabled>
+                <img src="./assets/img/chocolat.svg" alt="bonus icon">
+                <span id="bonus_label">Bonus</span>
+            </button>
+
+        </div>
+    </main>
+    <footer>
+        <p>&copy;Samir, Ivan & Clara : all rights reserved</p>
+    </footer>
+    <script type="module" src="./assets/js/script.js"></script>
+    <audio id="audio" src="./assets/audio/click.wav"></audio>
+
+</body>
+
+</html>
