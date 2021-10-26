@@ -17,6 +17,11 @@
         <!--<h1 id="main_title">Cookie-clicker</h1>-->
         <img id="logo" src="./assets/img/logo jarre.png" alt="Coockie clicker logo">
         <h2>Welcome to our game!</h2>
+        <img id="settings" src="./assets/img/settings.svg" alt="settings">
+        <div id="menu_settings">
+            <p>Audio on/off</p>
+            <p>Reset game</p>
+        </div>
     </header>
     <main>
         <div id="score_and_counter">
@@ -31,17 +36,23 @@
             </div>
             <div id="cookie_holder">
                 <img id="cookieClicker" src="./assets/img/cookie_1_test.svg" alt="cookie">
-                <!-- <img id="rayon" class="rotate" src="./assets/img/rayons.png" alt="rayon"> -->
+                <!--<img id="rayon" src="./assets/img/rayons.png" alt="rayon">-->
             </div>
 
         </div>
         <div id="buttons_holder">
             <!-- Attention !! changement des buttons en a avec img incluse!! -->
             <button title="bouton multiplier" class="bouton" id="multiplier" disabled>
+                <span class="x_fois">
+                    <p>x2</p>
+                </span>
                 <img src="./assets/img/store.svg" alt="multiplier icon">
                 <span id="multiplier_label">Multiplier</span>
             </button>
             <button title="bouton auto-clicker" class="bouton" id="auto-clicker" disabled>
+                <span class="x_fois">
+                    <p>x2</p>
+                </span>
                 <img src="./assets/img/pointer.svg" alt="auto-click icon">
                 <span id="autoclick_label">Auto-click</span>
             </button>
