@@ -307,7 +307,7 @@ function cursor(e){
    
     mouseCursor.style.top=e.pageY+"px";
     mouseCursor.style.left=e.pageX+"px";
-    mouseCursor_back.style.top=e.pageY+30+"px";
+    mouseCursor_back.style.top=e.pageY+40+"px";
     mouseCursor_back.style.left=e.pageX+"px";
 }
 
