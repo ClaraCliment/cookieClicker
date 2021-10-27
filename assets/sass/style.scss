@@ -42,12 +42,14 @@ body {
       padding-bottom: 1rem;
       border-bottom: 1px solid var(--bleu);
     }
+
     h2 {
       color: var(--bleu);
       font-weight: 400;
       padding-bottom: 0.4rem;
     }
   }
+
 
   #settings {
     width: 30px;
@@ -60,12 +62,15 @@ body {
     &:hover {
       opacity: 0.6;
     }
+
     &:active {
       transform: rotate(15deg);
+
     }
-  }
+    
+    }
+  
   #menu_settings {
-    // display: none;
     position: absolute;
     z-index: 5;
     top: 50px;
@@ -87,6 +92,7 @@ body {
         padding: 10px;
       }
     }
+
   }
 
   //On/off switch
@@ -241,6 +247,23 @@ body {
       padding: 0 20px;
     }
 
+    #cookie_holder {
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+        flex-direction: row;
+        position: relative;
+        height: 90%;
+        width: 90%;
+    
+        #cookieClicker {
+          width: 70%;
+          height: auto;
+          padding: 0 20px;
+        }
+
     /*#rayon {
       background-image: url("../img/rayons.png");
       background-size: contain;
@@ -253,7 +276,8 @@ body {
       position: absolute;
       z-index: -5;
     }*/
-  }
+}
+    
   // Dans le main: partie boutons du jeu
   #buttons_holder {
     max-height: 30%;
@@ -292,6 +316,7 @@ body {
       align-items: center;
       justify-content: center;
     }
+
   }
 
   #multiplier,
@@ -352,4 +377,6 @@ body {
       font-size: 12px;
     }
   }
+
 }
+

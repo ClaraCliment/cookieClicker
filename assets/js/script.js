@@ -99,6 +99,11 @@ let updateScore = () => {
         xAuto.innerHTML = "x" + autocounter
         cps.innerHTML = clickSec + " click/sec "
     }
+/**
+ * Change Cookie Imgage
+*/
+let checkImage
+
     /**
      * RESET FUNCTION
      */
@@ -175,7 +180,6 @@ cookieClicker.addEventListener("click", () => {
     /*
     EventListener for MultiClick Button
     Increse Counter and ClickPower
-    Increse Score 
     Increse Price
     Decrese Price from Score
     Remove "display:none"
