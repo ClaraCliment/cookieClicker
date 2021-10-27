@@ -18,11 +18,10 @@
 
 <body>
     <header>
-        <h1 id="main_title">Cookie-clicker</h1>
+        <!--<h1 id="main_title">Cookie-clicker</h1>-->
         <img id="logo" src="./assets/img/logo_jarre.png" alt="Coockie clicker logo">
         <h2>Welcome to our game!</h2>
         <img id="settings" src="./assets/img/settings.svg" alt="settings">
-
         <div id="menu_settings" style="display:none">
             <table id="settings_table">
                 <td>SFX</td>
@@ -39,13 +38,12 @@
                         </label></td>
                 </tr>
                 <tr>
-                    <td colspan="2"id="save" style="cursor: not-allowed;">Save</td>
+                    <td colspan="2">Save</td>
                 </tr>
                 <tr>
-                    <td colspan="2" id="reset" style="cursor:pointer">Reset</td>
+                    <td colspan="2">Reset</td>
                 </tr>
             </table>
-
         </div>
     </header>
     <main>
@@ -60,13 +58,13 @@
                 <p id="timer_bonus" style="display:none">bonus timer</p>
             </div>
             <div id="cookie_holder">
-
                 <img id="cookieClicker" src="./assets/img/cookie_1.svg" alt="cookie">
+                <!--<img id="rayon" src="./assets/img/rayons.png" alt="rayon lumineux">-->
 
-                <!--<div id="rayon"></div>-->
             </div>
         </div>
         <div id="buttons_holder">
+            <!-- Attention !! changement des buttons en a avec img incluse!! -->
             <button title="bouton multiplier" class="bouton" id="multiplier" disabled>
                 <div class="x_fois" style="visibility: hidden;">
                     <span id="x_multi">x2</span>
@@ -89,12 +87,12 @@
         </div>
     </main>
     <footer>
-        <p>&copy;Samir, Ivan, Nicolas & Clara : all rights reserved</p>
+        <p>&copy; Samir, Ivan, Nicolas & Clara : all rights reserved.</p>
     </footer>
-    <div id="cursor_top" class="cursor"></div> 
-    <div id="cursor_back" class="cursor_back"></div> 
     <script type="module" src="./assets/js/script.js"></script>
-    
+
+    <!-- <audio id="audio" src="./assets/audio/click.wav"></audio> -->
+
 </body>
 
 </html>
