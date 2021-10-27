@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,23 +8,42 @@
     <meta name="description" content="A clone game of the famous Cookie Clicker">
     <title>Cookie clicker game</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favico.svg" />
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/img/favico_test.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
         <!--<h1 id="main_title">Cookie-clicker</h1>-->
         <img id="logo" src="./assets/img/logo_jarre.png" alt="Coockie clicker logo">
         <h2>Welcome to our game!</h2>
         <img id="settings" src="./assets/img/settings.svg" alt="settings">
-        <div id="menu_settings">
-            <p>Volume</p>
-            <p>SFX ON OFF</p>
-            <p>MUSIC ON OFF</p>
-            <p>Save</p>
-          <p>Reset</p>
+        <div id="menu_settings" style="display:none">
+            <table id="settings_table">
+                <td>SFX</td>
+                <td><label class="switch SFX">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label></td>
+                </tr>
+                <tr>
+                    <td>Music</td>
+                    <td><label class="switch Music">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Save</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Reset</td>
+                </tr>
+            </table>
         </div>
     </header>
     <main>
@@ -38,7 +58,7 @@
                 <p id="timer_bonus" style="display:none">bonus timer</p>
             </div>
             <div id="cookie_holder">
-                <img id="cookieClicker" src="./assets/img/cookie_1_test.svg" alt="cookie">
+                <img id="cookieClicker" src="./assets/img/cookie_1.svg" alt="cookie">
                 <!--<div id="rayon"></div>-->
             </div>
         </div>
@@ -46,7 +66,7 @@
             <!-- Attention !! changement des buttons en a avec img incluse!! -->
             <button title="bouton multiplier" class="bouton" id="multiplier" disabled>
                 <div class="x_fois" style="visibility: hidden;">
-                    <span id="x_multi" >x2</span>
+                    <span id="x_multi">x2</span>
                 </div>
                 <img src="./assets/img/store.svg" alt="multiplier icon">
                 <span id="multiplier_label">Multiplier</span>
