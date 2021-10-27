@@ -1,0 +1,25 @@
+
+.cursor{
+    background-image: url("../img/dents_haut.png ");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    width: 5rem;
+    height: 2rem;
+    transform: translate(-100%,-100%);
+    pointer-events: none; 
+    border-radius: 5%; 
+}
+.cursor_back{
+    background-image: url("../img/dents_bas.png ");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position:absolute;
+    width: 5rem;
+    height: 2rem;
+    transform: translate(-100%,-100%);
+    pointer-events: none; 
+    border-radius: 5%; 
+}

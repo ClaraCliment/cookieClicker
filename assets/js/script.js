@@ -1,3 +1,5 @@
+
+// const {Howl, Howler} = require('howler');
 /*------------
 Functions
 ----------*/
@@ -7,6 +9,11 @@ Functions
  * @param {String} btn - HTML button element
  * @param {Number} prix - price of element
  */
+let sfx_bite= new Audio()
+sfx_bite.src="./assets/media/SF-croq.mp3"
+let music=new Audio()
+music.src="./assets/media/Melo1.mp3 "
+
 let show = (score, btn, prix) => {
         if (score >= prix) {
             btn.disabled = false;
@@ -66,11 +73,7 @@ let bonus = () => {
         if (b < 0) finish();
         else {}
     }
-    // let play = () => {
-    //     var audio = document.getElementById("audio");
-    //     audio.play();
-    // }
-    /**
+   /*
      hide functioon
     */
 let hide = () => {
@@ -98,11 +101,27 @@ let updateScore = () => {
         xMulti.innerHTML = "x" + multicounter
         xAuto.innerHTML = "x" + autocounter
         cps.innerHTML = clickSec + " click/sec "
+        checkImage(credit)
     }
+/**
+ * Change Cookie Imgage
+*/
+let checkImage=(score)=>{
+    if (score> check){
+        cookieImg.setAttribute("src","./assets/img/cookie_"+img_index+".svg")
+        img_index++
+        check=check*2
+    }
+    if (img_index>4){
+        img_index=4
+    }
+}
     /**
      * RESET FUNCTION
      */
 let reset = () => {
+    
+        cookieImg.setAttribute("src","./assets/img/cookie_1.svg")
         btnMultiplier.disabled = "true"
         btnAutoClicker.disabled = "true"
         btnBonus.disabled = "true"
@@ -126,13 +145,37 @@ let reset = () => {
         autocounter = 0
         multicounter = 0
         b = 30
+        check=250;
+        img_index=2
     }
+    /*Bite animation
+    */
+    let cursorBite=(e)=>{
+        mouseCursor.animate([
+            // keyframes
+            { top: e.pageY-5+"px" },
+            { left: e.pageX+"px" },
+          ], {
+            // timing options
+            duration: 100
+          });
+        mouseCursor.animate([
+            // keyframes
+            { top: e.pageY+20+"px" },
+            { left: e.pageX+"px" }
+          ], {
+            // timing options
+            duration: 100          
+          });
+      }
     /*---------
     Main Section
     ----------*/
     /* Initialize HTML Elements */
 const cookieClicker = document.getElementById('cookie_holder');
+const cookieImg= document.getElementById("cookieClicker")
 const score = document.getElementById('score');
+const btnReset =document.getElementById("reset")
 const btnMultiplier = document.getElementById('multiplier');
 const btnAutoClicker = document.getElementById('auto-clicker');
 const btnBonus = document.getElementById("bonus")
@@ -143,8 +186,16 @@ const labelBonus = document.getElementById("bonus_label")
 const timeleft = document.getElementById("timer_bonus")
 var xMulti = document.getElementById('x_multi')
 var xAuto = document.getElementById('x_auto')
+var mouseCursor=document.getElementById("cursor_top")
+var mouseCursor_back=document.getElementById('cursor_back')
 const btnMenu = document.getElementById("settings")
-    /*Initialize Variable*/
+/*variable audio
+*/
+    
+
+    
+
+var check=250;
 var credit = 0;
 var coutMultiplier = 30;
 var coutAutoClick = 125;
@@ -155,6 +206,7 @@ var intervalId = null
 var autocounter = 0
 var multicounter = 0
 var b = 30
+var img_index=2
 labelMultiplier.innerHTML = "Multiclick " + coutMultiplier;
 labelAutoClicker.innerHTML = "Autoclick " + coutAutoClick;
 labelBonus.innerHTML = "Bonus " + coutBonus;
@@ -164,8 +216,8 @@ Increse Score
 Update Score
 Check aviability for bonus
 */
-cookieClicker.addEventListener("click", () => {
-        // play()
+cookieClicker.addEventListener("click", (e) => {
+        cursorBite(e)
         credit = credit + clickPower
         updateScore()
         show(credit, btnMultiplier, coutMultiplier);
@@ -175,7 +227,6 @@ cookieClicker.addEventListener("click", () => {
     /*
     EventListener for MultiClick Button
     Increse Counter and ClickPower
-    Increse Score 
     Increse Price
     Decrese Price from Score
     Remove "display:none"
@@ -183,7 +234,6 @@ cookieClicker.addEventListener("click", () => {
     Check aviability for bonus
     */
 btnMultiplier.addEventListener('click', () => {
-
         multicounter++
         credit = credit - coutMultiplier;
         clickPower++
@@ -219,7 +269,7 @@ btnAutoClicker.addEventListener('click', () => {
 
     })
     /*
-    EventListener for MultiClick Button
+    EventListener for BOnus Button
     Increse Counter and ClickPower
     Increse Price
     Decrese Price from Score
@@ -249,5 +299,20 @@ btnMenu.addEventListener("click", () => {
     } else { hide() }
 })
 
+/*--------------
+Mouth animation
+-------------*/
+window.addEventListener("mousemove",cursor)
+function cursor(e){
+   
+    mouseCursor.style.top=e.pageY+"px";
+    mouseCursor.style.left=e.pageX+"px";
+    mouseCursor_back.style.top=e.pageY+40+"px";
+    mouseCursor_back.style.left=e.pageX+"px";
+}
+
 /*Start Reset */
 reset()
+btnReset.addEventListener("click",()=>{
+    reset()
+})
