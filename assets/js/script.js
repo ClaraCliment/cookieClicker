@@ -114,7 +114,6 @@ let checkImage=(score)=>{
         img_index=4
     }
 }
-
     /**
      * RESET FUNCTION
      */
@@ -137,7 +136,7 @@ let reset = () => {
         multi_x_fois.style.display = "none"
         credit = 0;
         coutMultiplier = 30;
-        coutAutoClick = 12;
+        coutAutoClick = 125;
         coutBonus = 250;
         clickPower = 1;
         clickSec = 1;
@@ -202,7 +201,7 @@ var auto='undefined'
 var check=250;
 var credit = 0;
 var coutMultiplier = 30;
-var coutAutoClick = 12;
+var coutAutoClick = 125;
 var coutBonus = 250;
 var clickPower = 1;
 var clickSec = 1;
@@ -303,6 +302,8 @@ btnMenu.addEventListener("click", () => {
         console.log("open")
     } else { hide() }
 })
+
+
 /*--------------
 Mouth animation
 -------------*/
