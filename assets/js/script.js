@@ -175,7 +175,6 @@ cookieClicker.addEventListener("click", () => {
     /*
     EventListener for MultiClick Button
     Increse Counter and ClickPower
-    Increse Score 
     Increse Price
     Decrese Price from Score
     Remove "display:none"
