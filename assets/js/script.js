@@ -99,6 +99,11 @@ let updateScore = () => {
         xAuto.innerHTML = "x" + autocounter
         cps.innerHTML = clickSec + " click/sec "
     }
+/**
+ * Change Cookie Imgage
+*/
+let checkImage
+
     /**
      * RESET FUNCTION
      */
