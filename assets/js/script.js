@@ -1,3 +1,5 @@
+
+// const {Howl, Howler} = require('howler');
 /*------------
 Functions
 ----------*/
@@ -7,6 +9,11 @@ Functions
  * @param {String} btn - HTML button element
  * @param {Number} prix - price of element
  */
+let sfx_bite= new Audio()
+sfx_bite.src="./assets/media/SF-croq.mp3"
+let music=new Audio()
+music.src="./assets/media/Melo1.mp3 "
+
 let show = (score, btn, prix) => {
         if (score >= prix) {
             btn.disabled = false;
@@ -66,11 +73,7 @@ let bonus = () => {
         if (b < 0) finish();
         else {}
     }
-    // let play = () => {
-    //     var audio = document.getElementById("audio");
-    //     audio.play();
-    // }
-    /**
+   /*
      hide functioon
     */
 let hide = () => {
@@ -117,7 +120,7 @@ let checkImage=(score)=>{
      * RESET FUNCTION
      */
 let reset = () => {
-        audio.play()
+    
         cookieImg.setAttribute("src","./assets/img/cookie_1.svg")
         btnMultiplier.disabled = "true"
         btnAutoClicker.disabled = "true"
@@ -169,9 +172,10 @@ var mouseCursor_back=document.getElementById('cursor_back')
 const btnMenu = document.getElementById("settings")
 /*variable audio
 */
-var audio = new Audio('../audio/Melo1.mp3 ');
-var sfx_bite =new Audio('../audi/SF-croq.pm3 ')
-    /*Initialize Variable*/
+    
+
+    
+
 var check=500;
 var credit = 0;
 var coutMultiplier = 30;
@@ -194,7 +198,8 @@ Update Score
 Check aviability for bonus
 */
 cookieClicker.addEventListener("click", () => {
-        // play()
+    music.play()
+        sfx_bite.play()
         credit = credit + clickPower
         updateScore()
         show(credit, btnMultiplier, coutMultiplier);
