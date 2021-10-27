@@ -35,8 +35,8 @@
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
-  width: 3rem;
-  height: 1rem;
+  width: 5rem;
+  height: 2rem;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   pointer-events: none;
@@ -49,8 +49,8 @@
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;
-  width: 3rem;
-  height: 1rem;
+  width: 5rem;
+  height: 2rem;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   pointer-events: none;

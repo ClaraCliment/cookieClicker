@@ -145,10 +145,29 @@ let reset = () => {
         autocounter = 0
         multicounter = 0
         b = 30
-        check=500;
+        check=250;
         img_index=2
     }
-
+    /*Bite animation
+    */
+    let cursorBite=(e)=>{
+        mouseCursor.animate([
+            // keyframes
+            { top: e.pageY-5+"px" },
+            { left: e.pageX+"px" },
+          ], {
+            // timing options
+            duration: 100
+          });
+        mouseCursor.animate([
+            // keyframes
+            { top: e.pageY+20+"px" },
+            { left: e.pageX+"px" }
+          ], {
+            // timing options
+            duration: 100          
+          });
+      }
     /*---------
     Main Section
     ----------*/
@@ -176,7 +195,7 @@ const btnMenu = document.getElementById("settings")
 
     
 
-var check=500;
+var check=250;
 var credit = 0;
 var coutMultiplier = 30;
 var coutAutoClick = 125;
@@ -197,9 +216,8 @@ Increse Score
 Update Score
 Check aviability for bonus
 */
-cookieClicker.addEventListener("click", () => {
-    music.play()
-        sfx_bite.play()
+cookieClicker.addEventListener("click", (e) => {
+        cursorBite(e)
         credit = credit + clickPower
         updateScore()
         show(credit, btnMultiplier, coutMultiplier);
@@ -289,25 +307,10 @@ function cursor(e){
    
     mouseCursor.style.top=e.pageY+"px";
     mouseCursor.style.left=e.pageX+"px";
+    mouseCursor_back.style.top=e.pageY+30+"px";
+    mouseCursor_back.style.left=e.pageX+"px";
 }
 
-window.addEventListener("mousemove",cursor_back)
-function cursor_back(e){
-    
-    mouseCursor_back.style.top=e.pageY+20+"px";
-    mouseCursor_back.style.left=e.pageX+"px";
-   
-}
-cookieClicker.addEventListener("click",cursorBite)
-function cursorBite(e){
-  console.log(e)
-    mouseCursor.style.top=e.pageY-5+"px";
-    mouseCursor.style.left=e.pageX+"px";
-    mouseCursor_back.style.top=e.pageY+20+"px";
-    mouseCursor_back.style.left=e.pageX+"px";
-
-}
-    
 /*Start Reset */
 reset()
 btnReset.addEventListener("click",()=>{
