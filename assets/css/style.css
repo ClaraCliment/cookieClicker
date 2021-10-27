@@ -91,6 +91,7 @@ body #settings:active {
 }
 
 body #menu_settings {
+  display: none;
   position: absolute;
   z-index: 5;
   top: 50px;
@@ -237,12 +238,17 @@ body #cookie_holder #cookieClicker {
 }
 
 body #cookie_holder #rayon {
+  background-image: url("../img/rayons.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   -webkit-animation: rotation 8s infinite linear;
           animation: rotation 8s infinite linear;
   height: 200%;
   width: 200%;
+  top: -100px;
   position: absolute;
-  z-index: -1;
+  z-index: -5;
 }
 
 body #buttons_holder {

@@ -28,7 +28,6 @@
 body {
   background: linear-gradient(var(--bleu_light), var(--bleu_ciel));
   font-family: "Montserrat", sans-serif;
-  //overflow: hidden;
 
   //Header ---------------------------------------------------------------------------
   header {
@@ -68,6 +67,7 @@ body {
   }
 
   #menu_settings {
+    display: none;
     position: absolute;
     z-index: 5;
     top: 50px;
@@ -170,13 +170,18 @@ body {
       height: auto;
       padding: 0 20px;
     }
-    #rayon {
+    /*#rayon {
+      background-image: url("../img/rayons.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
       animation: rotation 8s infinite linear;
       height: 200%;
       width: 200%;
+      top: -100px;
       position: absolute;
-      z-index: -1;
-    }
+      z-index: -5;
+    }*/
   }
   // Dans le main: partie boutons du jeu
   #buttons_holder {
