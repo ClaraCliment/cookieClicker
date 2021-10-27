@@ -98,16 +98,27 @@ let updateScore = () => {
         xMulti.innerHTML = "x" + multicounter
         xAuto.innerHTML = "x" + autocounter
         cps.innerHTML = clickSec + " click/sec "
+        checkImage(credit)
     }
 /**
  * Change Cookie Imgage
 */
-let checkImage
-
+let checkImage=(score)=>{
+    if (score> check){
+        cookieImg.setAttribute("src","./assets/img/cookie_"+img_index+".svg")
+        img_index++
+        check=check*2
+    }
+    if (img_index>4){
+        img_index=4
+    }
+}
     /**
      * RESET FUNCTION
      */
 let reset = () => {
+        audio.play()
+        cookieImg.setAttribute("src","./assets/img/cookie_1.svg")
         btnMultiplier.disabled = "true"
         btnAutoClicker.disabled = "true"
         btnBonus.disabled = "true"
@@ -131,13 +142,18 @@ let reset = () => {
         autocounter = 0
         multicounter = 0
         b = 30
+        check=500;
+        img_index=2
     }
+
     /*---------
     Main Section
     ----------*/
     /* Initialize HTML Elements */
 const cookieClicker = document.getElementById('cookie_holder');
+const cookieImg= document.getElementById("cookieClicker")
 const score = document.getElementById('score');
+const btnReset =document.getElementById("reset")
 const btnMultiplier = document.getElementById('multiplier');
 const btnAutoClicker = document.getElementById('auto-clicker');
 const btnBonus = document.getElementById("bonus")
@@ -148,8 +164,15 @@ const labelBonus = document.getElementById("bonus_label")
 const timeleft = document.getElementById("timer_bonus")
 var xMulti = document.getElementById('x_multi')
 var xAuto = document.getElementById('x_auto')
+var mouseCursor=document.getElementById("cursor_top")
+var mouseCursor_back=document.getElementById('cursor_back')
 const btnMenu = document.getElementById("settings")
+/*variable audio
+*/
+var audio = new Audio('../audio/Melo1.mp3 ');
+var sfx_bite =new Audio('../audi/SF-croq.pm3 ')
     /*Initialize Variable*/
+var check=500;
 var credit = 0;
 var coutMultiplier = 30;
 var coutAutoClick = 125;
@@ -160,6 +183,7 @@ var intervalId = null
 var autocounter = 0
 var multicounter = 0
 var b = 30
+var img_index=2
 labelMultiplier.innerHTML = "Multiclick " + coutMultiplier;
 labelAutoClicker.innerHTML = "Autoclick " + coutAutoClick;
 labelBonus.innerHTML = "Bonus " + coutBonus;
@@ -187,7 +211,6 @@ cookieClicker.addEventListener("click", () => {
     Check aviability for bonus
     */
 btnMultiplier.addEventListener('click', () => {
-
         multicounter++
         credit = credit - coutMultiplier;
         clickPower++
@@ -223,7 +246,7 @@ btnAutoClicker.addEventListener('click', () => {
 
     })
     /*
-    EventListener for MultiClick Button
+    EventListener for BOnus Button
     Increse Counter and ClickPower
     Increse Price
     Decrese Price from Score
@@ -253,5 +276,35 @@ btnMenu.addEventListener("click", () => {
     } else { hide() }
 })
 
+/*--------------
+Mouth animation
+-------------*/
+window.addEventListener("mousemove",cursor)
+function cursor(e){
+   
+    mouseCursor.style.top=e.pageY+"px";
+    mouseCursor.style.left=e.pageX+"px";
+}
+
+window.addEventListener("mousemove",cursor_back)
+function cursor_back(e){
+    
+    mouseCursor_back.style.top=e.pageY+20+"px";
+    mouseCursor_back.style.left=e.pageX+"px";
+   
+}
+cookieClicker.addEventListener("click",cursorBite)
+function cursorBite(e){
+  console.log(e)
+    mouseCursor.style.top=e.pageY-5+"px";
+    mouseCursor.style.left=e.pageX+"px";
+    mouseCursor_back.style.top=e.pageY+20+"px";
+    mouseCursor_back.style.left=e.pageX+"px";
+
+}
+    
 /*Start Reset */
 reset()
+btnReset.addEventListener("click",()=>{
+    reset()
+})

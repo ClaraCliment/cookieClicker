@@ -8,6 +8,7 @@
 }
 
 @import "animate";
+@import "cursor";
 // Colors
 :root {
   --white: #fff;
@@ -264,19 +265,20 @@ body {
           padding: 0 20px;
         }
 
-    /*#rayon {
-      background-image: url("../img/rayons.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      animation: rotation 8s infinite linear;
-      height: 200%;
-      width: 200%;
-      top: -100px;
-      position: absolute;
-      z-index: -5;
-    }*/
+    // #rayon {
+    //   background-image: url("../img/rayons.png");
+    //   background-size: contain;
+    //   background-repeat: no-repeat;
+    //   background-position: center;
+    //   animation: rotation 8s infinite linear;
+    //   height: 200%;
+    //   width: 200%;
+    //   top: -100px;
+    //   position: absolute;
+    //   z-index: -5;
+    // }
 }
+  }
     
   // Dans le main: partie boutons du jeu
   #buttons_holder {
