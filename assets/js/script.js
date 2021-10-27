@@ -9,10 +9,7 @@ Functions
  * @param {String} btn - HTML button element
  * @param {Number} prix - price of element
  */
-let sfx_bite= new Audio()
-sfx_bite.src="./assets/media/SF-croq.mp3"
-let music=new Audio()
-music.src="./assets/media/Melo1.mp3 "
+
 
 let show = (score, btn, prix) => {
         if (score >= prix) {
@@ -40,8 +37,9 @@ let showBonus = (score, btn, prix) => {
      * @param {Number} number - click per seconds
      */
 let autoincrease = () => {
-        setInterval(() => {
-            cookieClicker.click()
+            auto=setInterval(() => {
+            credit=credit+1
+            updateScore()
             show(credit, btnMultiplier, coutMultiplier);
             show(credit, btnAutoClicker, coutAutoClick);
             showBonus(credit, btnBonus, coutBonus)
@@ -116,11 +114,12 @@ let checkImage=(score)=>{
         img_index=4
     }
 }
+
     /**
      * RESET FUNCTION
      */
 let reset = () => {
-    
+        clearInterval(auto)
         cookieImg.setAttribute("src","./assets/img/cookie_1.svg")
         btnMultiplier.disabled = "true"
         btnAutoClicker.disabled = "true"
@@ -129,7 +128,8 @@ let reset = () => {
         labelMultiplier.innerHTML = "Multiclick " + coutMultiplier;
         labelAutoClicker.innerHTML = "Autoclick " + coutAutoClick;
         labelBonus.innerHTML = "Bonus " + coutBonus;
-        timeleft.style.display = "none"
+        timeleft.style.visibility="hidden"
+        cps.style.visibility="hidden"
         xMulti = document.getElementById('x_multi')
         let auto_x_fois = document.querySelector("#auto-clicker .x_fois")
         auto_x_fois.style.display = "none"
@@ -137,7 +137,7 @@ let reset = () => {
         multi_x_fois.style.display = "none"
         credit = 0;
         coutMultiplier = 30;
-        coutAutoClick = 125;
+        coutAutoClick = 12;
         coutBonus = 250;
         clickPower = 1;
         clickSec = 1;
@@ -191,14 +191,18 @@ var mouseCursor_back=document.getElementById('cursor_back')
 const btnMenu = document.getElementById("settings")
 /*variable audio
 */
-    
-
-    
-
+let sfx_bite= new Audio()
+sfx_bite.src="./assets/media/SF-croq.mp3"
+sfx_bite.volume="0"
+let music=new Audio()
+music.src="./assets/media/Melo1.mp3 "
+music.volume='0'
+/*Initialize all variable*/
+var auto='undefined'
 var check=250;
 var credit = 0;
 var coutMultiplier = 30;
-var coutAutoClick = 125;
+var coutAutoClick = 12;
 var coutBonus = 250;
 var clickPower = 1;
 var clickSec = 1;
@@ -218,6 +222,7 @@ Check aviability for bonus
 */
 cookieClicker.addEventListener("click", (e) => {
         cursorBite(e)
+        sfx_bite.play()
         credit = credit + clickPower
         updateScore()
         show(credit, btnMultiplier, coutMultiplier);
@@ -240,7 +245,6 @@ btnMultiplier.addEventListener('click', () => {
         let a = document.querySelector("#multiplier .x_fois")
         a.removeAttribute("style")
         coutMultiplier = coutMultiplier * 2;
-        clickSec = clickSec + 1
         updateScore()
         labelMultiplier.innerHTML = "Multiclick " + coutMultiplier;
         show(credit, btnMultiplier, coutMultiplier);
@@ -257,11 +261,12 @@ btnMultiplier.addEventListener('click', () => {
     Update Score
     */
 btnAutoClicker.addEventListener('click', () => {
-        autocounter++
-        clickSec = autocounter * clickPower;
-        credit = credit - coutAutoClick;
+    credit = credit - coutAutoClick;
         coutAutoClick = coutAutoClick * 2;
-        autoincrease();
+        show(credit, btnAutoClicker, coutAutoClick);
+        autocounter++
+        clickSec = autocounter ;
+         autoincrease();
         let a = document.querySelector("#auto-clicker .x_fois")
         a.removeAttribute("style")
         cps.removeAttribute("style")
@@ -298,18 +303,56 @@ btnMenu.addEventListener("click", () => {
         console.log("open")
     } else { hide() }
 })
-
 /*--------------
 Mouth animation
 -------------*/
-window.addEventListener("mousemove",cursor)
-function cursor(e){
-   
+cookieClicker.addEventListener("mousemove",cursorin)
+function cursorin(e){
     mouseCursor.style.top=e.pageY+"px";
     mouseCursor.style.left=e.pageX+"px";
     mouseCursor_back.style.top=e.pageY+40+"px";
     mouseCursor_back.style.left=e.pageX+"px";
 }
+cookieClicker.addEventListener("mouseout",cursorout)
+function cursorout(e){
+    mouseCursor.removeAttribute("style")
+    mouseCursor_back.removeAttribute("style")
+}
+
+
+/**
+ * Audio Event SFX
+ */
+ var checkbox = document.getElementById("sfx")
+ checkbox.addEventListener('change', (event) => {
+    if (event.currentTarget.checked) {
+        sfx_bite.volume="1"    
+    } else {
+          
+        sfx_bite.volume='0'     
+    }
+  })
+  /**
+ * Audio Event Music
+ */
+ var checkbox = document.getElementById("music")
+ checkbox.addEventListener('change', (event) => {
+    if (event.currentTarget.checked) {
+        music.play()
+        music.volume="1"
+        
+    } else {
+        music.volume="0" 
+    }
+  })
+
+// /* 
+// Animate Eyes
+// */
+// let eys_r=document.getElementById("right_eye")
+// console.log(eys_r)
+
+
 
 /*Start Reset */
 reset()
