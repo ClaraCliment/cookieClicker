@@ -27,6 +27,7 @@
 body {
   background: linear-gradient(var(--bleu_light), var(--bleu_ciel));
   font-family: "Montserrat", sans-serif;
+  height: 100vh;
 
   //Header ---------------------------------------------------------------------------
   header {
@@ -66,10 +67,10 @@ body {
   }
   #menu_settings {
     // display: none;
-    position: absolute;
+    position: fixed;
     z-index: 5;
-    top: 50px;
-    right: 0px;
+    top: 60px;
+    right: 10px;
     //text-align: center;
     background-color: white;
     border-radius: 8px;
@@ -157,9 +158,7 @@ body {
   // Counter & cookie
   main {
     display: flex;
-    //align-items: center;
     flex-direction: column;
-    //margin: 50px 0px;
   }
   // Main : partie score / clicks par seconde / Visuel cookie
   #score_and_counter {
@@ -169,7 +168,7 @@ body {
     flex-direction: column;
     align-items: center;
     #score_box {
-      max-height: 65%;
+      //max-height: 65%;
       position: relative;
       img {
         position: absolute;
@@ -236,24 +235,24 @@ body {
     width: 90%;
 
     #cookieClicker {
-      width: 70%;
+      min-width: 0%;
       height: auto;
       padding: 0 20px;
     }
 
-    #rayon_holder {
-      height: 300px;
-      width: 300px;
-      img {
-        animation: rotation 8s infinite linear;
-        position: absolute;
-        z-index: -5;
-      }
-    }
+    // #rayon {
+    //   width: 90%;
+    //   height: 300px;
+    //   position: absolute;
+    //   z-index: -5;
+    //   object-fit: cover;
+    //   align-self: center;
+    //   animation: rotation 8s infinite linear;
+    // }
   }
   // Dans le main: partie boutons du jeu
   #buttons_holder {
-    max-height: 30%;
+    //max-height: 30%;
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -347,6 +346,76 @@ body {
     flex-direction: column;
     p {
       font-size: 12px;
+    }
+  }
+
+  // Desktop
+  @media only screen and (min-width: 768px), (orientation: landscape) {
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: row;
+    }
+    #logo {
+      padding-left: 40px;
+      width: 120px;
+      height: auto;
+      padding-top: 12px;
+      border-bottom: none !important;
+    }
+    h2 {
+      padding-left: 40px;
+      font-size: 30px;
+      padding-top: 0.5rem;
+      padding-bottom: 1rem !important;
+    }
+
+    // Main
+    main {
+      margin: 10px;
+      border-top: 1px solid var(--bleu);
+      padding: 2rem;
+      justify-content: space-evenly;
+      flex-direction: row;
+
+      #score_and_counter {
+        justify-content: flex-start;
+
+        #cookieClicker {
+          padding: 0;
+        }
+      }
+
+      #buttons_holder {
+        background-color: rgba($color: white, $alpha: 0.6);
+        flex-direction: column;
+        padding: 30px;
+        justify-content: space-evenly;
+        //border: 2px solid var(--bleu);
+        border-radius: 8px;
+      }
+    }
+  }
+
+  // Mobil landscape
+  @media only screen and (max-width: 768px) and (orientation: landscape) {
+    header {
+      margin: 0.4 rem auto;
+    }
+    #logo {
+      padding-left: 20px;
+      width: 70px;
+      height: auto;
+      padding-top: 8px;
+      border-bottom: none !important;
+    }
+    h2 {
+      padding-left: 30px;
+      font-size: 18px;
+      padding-top: 0.2rem;
+      padding-bottom: 0.6 rem !important;
     }
   }
 }
