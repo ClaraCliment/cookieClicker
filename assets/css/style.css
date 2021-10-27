@@ -299,24 +299,24 @@ body #cookie_holder {
   position: relative;
   height: 90%;
   width: 90%;
-  /*#rayon {
-      background-image: url("../img/rayons.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      animation: rotation 8s infinite linear;
-      height: 200%;
-      width: 200%;
-      top: -100px;
-      position: absolute;
-      z-index: -5;
-    }*/
 }
 
 body #cookie_holder #cookieClicker {
   width: 70%;
   height: auto;
   padding: 0 20px;
+}
+
+body #cookie_holder #rayon_holder {
+  height: 300px;
+  width: 300px;
+}
+
+body #cookie_holder #rayon_holder img {
+  -webkit-animation: rotation 8s infinite linear;
+          animation: rotation 8s infinite linear;
+  position: absolute;
+  z-index: -5;
 }
 
 body #buttons_holder {
