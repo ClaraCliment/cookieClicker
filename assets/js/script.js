@@ -1,6 +1,3 @@
-import * as anime from './animation.js'
-// import * as myModule from '/modules/my-module.js';
-
 /*------------
 Functions
 ----------*/
@@ -60,7 +57,6 @@ let finish = () => {
      * Start Function
      */
 let start = () => {
-        anime.init()
         clickPower = clickPower * 2
         intervalId = setInterval(bonus, 1000);
     }
@@ -115,7 +111,6 @@ let checkImage = (score) => {
             img_index++
             check = check * 2
         }
-
     }
     /**
      * RESET FUNCTION
@@ -305,7 +300,6 @@ function removeElementsByClass(classname) {
 }
 cookieClicker.addEventListener("click", (e) => {
         showPower()
-
         cursorBite(e)
         console.log(e)
         sfx_bite.play()
@@ -427,8 +421,8 @@ let showPower = () => {
         point.style.left = x_cord
         point.style.position = "absolute"
         point.style.fontFamily = "Montserrat"
-        point.style.width = 2 + "rem"
-        point.style.height = 2 + "rem"
+        point.style.width = 3 + "rem"
+        point.style.height = 3 + "rem"
         point.style.color = "#053742"
         document.getElementById("x" + co_x).style.pointerEvents = "none"
         point.animate([
