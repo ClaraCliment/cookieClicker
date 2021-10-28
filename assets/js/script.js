@@ -57,7 +57,7 @@ let finish = () => {
      * Start Function
      */
 let start = () => {
-        sfx_money.play()
+
         clickPower = clickPower * 2
         intervalId = setInterval(bonus, 1000);
     }
@@ -67,6 +67,7 @@ let start = () => {
 let bonus = () => {
         timeleft.innerHTML = "Bonus " + b + "s left"
         b--
+        sfx_money.play()
         if (b < 0) finish();
         else {}
     }
@@ -74,7 +75,7 @@ let bonus = () => {
       hide functioon
      */
 let hide = () => {
-        console.log("closed")
+
         let menu = document.getElementById("menu_settings")
         menu.style.display = "none"
     }
@@ -198,16 +199,6 @@ let initCookie = () => {
         } else {
             cps.removeAttribute("style")
         }
-        console.log("Credit " + credit + typeof(credit))
-        console.log("CoutMulti " + coutMultiplier + typeof(coutMultiplier))
-        console.log("CoutAuto " + coutAutoClick + typeof(coutAutoClick))
-        console.log("Cout Bounus" + coutBonus + typeof(coutBonus))
-        console.log("POwer " + clickPower + typeof(clickPower))
-        console.log("Sec " + clickSec + typeof(clickSec))
-        console.log("Auto " + autocounter + typeof(crediautocountert))
-        console.log("Multi " + multicounter + typeof(crmulticounteredit))
-        console.log("chek " + check + typeof(crecheckdit))
-        console.log("img_indew " + img_index + typeof(img_index))
         show(credit, btnMultiplier, coutMultiplier);
         show(credit, btnAutoClicker, coutAutoClick);
         showBonus(credit, btnBonus, coutBonus)
@@ -271,7 +262,7 @@ let sfx_money = new Audio()
 sfx_money.src = './assets/media/piece.wav'
 sfx_money.volume = '0'
 let sfx_powerup = new Audio()
-sfx_powerup.src = './assets/media/power.wav'
+sfx_powerup.src = './assets/media/power-up.wav'
 sfx_powerup.volume = '0'
 
 /*Initialize all variable*/
@@ -309,7 +300,6 @@ function removeElementsByClass(classname) {
 cookieClicker.addEventListener("click", (e) => {
         showPower()
         cursorBite(e)
-        console.log(e)
         sfx_bite.play()
         credit = credit + clickPower
         updateScore()
@@ -361,7 +351,6 @@ btnAutoClicker.addEventListener('click', () => {
         a.removeAttribute("style")
         cps.removeAttribute("style")
         updateScore()
-
     })
     /*
     EventListener for BOnus Button
@@ -377,7 +366,6 @@ btnBonus.addEventListener("click", () => {
         credit = credit - coutBonus
         coutBonus = coutBonus * 4
         start()
-        console.log("bonus activated")
         timeleft.removeAttribute("style")
         updateScore()
         show(credit, btnMultiplier, coutMultiplier);
@@ -391,7 +379,6 @@ btnMenu.addEventListener("click", () => {
         if (!isopen()) {
             let menu = document.getElementById("menu_settings")
             menu.removeAttribute("style")
-            console.log("open")
         } else { hide() }
     })
     /*--------------
@@ -435,21 +422,10 @@ let showPower = () => {
         point.style.height = 3 + "rem"
         point.style.color = "#053742"
         document.getElementById("x" + co_x).style.pointerEvents = "none"
-        point.animate([
-            // 
-            { opacity: 1 },
-            { top: y_cord * 0.5, opacity: 1 },
-            { top: -250 + "px", opacity: 0, }
+        document.getElementById("x" + co_x).style.animation = "GoUp 2s forwards linear";
 
-        ], {
-            // timing options
-            duration: 1000,
-        })
-        setInterval(() => {
-            removeElementsByClass("s")
-
-        }, 50)
         elem.innerHTML = "+" + clickPower
+
     }
     /**
      * Audio Event SFX
