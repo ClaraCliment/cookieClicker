@@ -57,6 +57,7 @@ let finish = () => {
      * Start Function
      */
 let start = () => {
+        sfx_money.play()
         clickPower = clickPower * 2
         intervalId = setInterval(bonus, 1000);
     }
@@ -266,7 +267,14 @@ sfx_bite.volume = "0"
 let music = new Audio()
 music.src = "./assets/media/Melo1.mp3 "
 music.volume = '0'
-    /*Initialize all variable*/
+let sfx_money = new Audio()
+sfx_money.src = './assets/media/piece.wav'
+sfx_money.volume = '0'
+let sfx_powerup = new Audio()
+sfx_powerup.src = './assets/media/power.wav'
+sfx_powerup.volume = '0'
+
+/*Initialize all variable*/
 var auto = 'undefined'
 var check = 250;
 var credit = 0;
@@ -319,6 +327,7 @@ cookieClicker.addEventListener("click", (e) => {
     Check aviability for bonus
     */
 btnMultiplier.addEventListener('click', () => {
+        sfx_powerup.play()
         multicounter++
         credit = credit - coutMultiplier;
         clickPower++
@@ -341,6 +350,7 @@ btnMultiplier.addEventListener('click', () => {
     Update Score
     */
 btnAutoClicker.addEventListener('click', () => {
+        sfx_powerup.play()
         credit = credit - coutAutoClick;
         coutAutoClick = coutAutoClick * 2;
         show(credit, btnAutoClicker, coutAutoClick);
@@ -363,7 +373,7 @@ btnAutoClicker.addEventListener('click', () => {
     Check aviability for bonus
     */
 btnBonus.addEventListener("click", () => {
-
+        sfx_powerup.play()
         credit = credit - coutBonus
         coutBonus = coutBonus * 4
         start()
@@ -448,8 +458,11 @@ var checkbox = document.getElementById("sfx")
 checkbox.addEventListener('change', (event) => {
         if (event.currentTarget.checked) {
             sfx_bite.volume = "1"
+            sfx_money.volume = "1"
+            sfx_powerup.volume = "1"
         } else {
-
+            sfx_money.volume = "0"
+            sfx_powerup.volume = "0"
             sfx_bite.volume = '0'
         }
     })
