@@ -1,25 +1,40 @@
-
-.cursor{
+.cursor {
     background-image: url("../img/dents_haut.png ");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    position:absolute;
+    position: absolute;
     width: 5rem;
     height: 2rem;
-    transform: translate(-100%,-100%);
-    pointer-events: none; 
-    border-radius: 5%; 
+    transform: translate(-100%, -100%);
+    pointer-events: none;
+    border-radius: 5%;
 }
-.cursor_back{
+
+.cursor_back {
     background-image: url("../img/dents_bas.png ");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    position:absolute;
+    position: absolute;
     width: 5rem;
     height: 2rem;
-    transform: translate(-100%,-100%);
-    pointer-events: none; 
-    border-radius: 5%; 
+    transform: translate(-100%, -100%);
+    pointer-events: none;
+    border-radius: 5%;
 }
+
+// #rayon {
+//     border: 1px solid red;
+//     border-radius: 100%;
+//     width: 48%;
+//     height: 100%;
+//     position: absolute;
+//     z-index: -1;
+//     background-image: url('../img/rayons.png');
+//     background-size: cover;
+//     background-position: center;
+//     align-self: center;
+//     overflow: hidden;
+//     animation: rotation 8s infinite linear;
+// }
