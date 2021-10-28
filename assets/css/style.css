@@ -325,14 +325,32 @@ body #cookie_holder {
       -ms-flex-direction: row;
           flex-direction: row;
   position: relative;
-  height: 90%;
-  width: 90%;
+  height: 80%;
+  width: 80%;
 }
 
 body #cookie_holder #cookieClicker {
   min-width: 0%;
   height: auto;
   padding: 0 20px;
+}
+
+body #cookie_holder #rayon {
+  border: 1px solid red;
+  border-radius: 100%;
+  width: 320px;
+  height: 320px;
+  position: absolute;
+  z-index: -1;
+  background-image: url("../img/rayons.png");
+  background-size: cover;
+  background-position: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  overflow: hidden;
+  -webkit-animation: rotation 8s infinite linear;
+          animation: rotation 8s infinite linear;
 }
 
 body #buttons_holder {

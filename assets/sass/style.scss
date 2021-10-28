@@ -232,8 +232,8 @@ body {
     flex-wrap: wrap;
     flex-direction: row;
     position: relative;
-    height: 90%;
-    width: 90%;
+    height: 80%;
+    width: 80%;
 
     #cookieClicker {
       min-width: 0%;
@@ -241,15 +241,21 @@ body {
       padding: 0 20px;
     }
 
-    // #rayon {
-    //   width: 90%;
-    //   height: 300px;
-    //   position: absolute;
-    //   z-index: -5;
-    //   object-fit: cover;
-    //   align-self: center;
-    //   animation: rotation 8s infinite linear;
-    // }
+    #rayon {
+      border: 1px solid red;
+      border-radius: 100%;
+      width: 320px;
+      height: 320px;
+      position: absolute;
+      z-index: -1;
+     background-image: url('../img/rayons.png');
+     background-size: cover;
+     background-position: center;
+      align-self: center;
+      overflow: hidden;
+      animation: rotation 8s infinite linear;
+      
+    }
   }
   // Dans le main: partie boutons du jeu
   #buttons_holder {
