@@ -33,9 +33,21 @@ at the end we merged the two phases and started the testing phase to find bugs a
 ## Team
 ---
 
-- Front-end web development -> Clara Climent  
-- Project management & full stack dev -> Ivan D'Andrea 
-- Back-end web development -> Samir Nacer
-- Full stack deve -> Nicolas Valiacas
+- Front-end web development -> [Clara Climent](https://github.com/ClaraCliment)
+- Project management & full stack dev -> [Ivan D'Andrea](https://github.com/IvanDandrea86)
+- Back-end web development -> [Samir Nacer](https://github.com/nass22)
+- Full stack dev -> [Nicolas Valiacas](https://github.com/NicolasValiacas)
 
+## Final Result
+---
+
+![lighthouse](./assets/img/lighthouse.png)
+
+![Site Final](./assets/img/SiteFinal.png)
+
+![Final Mobile](./assets/img/SiteMobile)
+
+Is not Iphone Responsive :'(
+
+[Link Cookie Clicker](https://ivandandrea86.github.io/cookieClicker/)
 
