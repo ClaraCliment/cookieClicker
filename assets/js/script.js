@@ -119,6 +119,8 @@ let checkImage = (score) => {
      */
 let reset = () => {
         clearInterval(auto)
+        window.localStorage.clear()
+        btnLoad.style.cursor = "not-allowed"
         cookieImg.setAttribute("src", "./assets/img/cookie_1.svg")
         btnMultiplier.disabled = "true"
         btnAutoClicker.disabled = "true"
@@ -149,6 +151,7 @@ let reset = () => {
     Saving function
     */
 let save = () => {
+    btnLoad.style.cursor = "pointer"
     scoreStorage.setItem("Score", credit)
     scoreStorage.setItem("MultiplierPrice", coutMultiplier)
     scoreStorage.setItem("AutoClickPrice", coutAutoClick)
@@ -165,7 +168,7 @@ let save = () => {
     if (multi_x_fois.style.display == "hidden") {
         var y = "hidden"
     }
-    if (cps.style.visibility = "hidden") {
+    if (cps.style.visibility == "hidden") {
         var z = "hidden"
     }
     scoreStorage.setItem("StatusclikSec", z)
@@ -184,20 +187,23 @@ let initCookie = () => {
         multicounter = Number(scoreStorage.getItem("MultiplierCounter"))
         check = Number(scoreStorage.getItem("Check_score"))
         img_index = Number(scoreStorage.getItem("img_index"))
-        if ((scoreStorage.getItem("Status_auto_x_fois") === "hidden")) {
+        if ((scoreStorage.getItem("Status_auto_x_fois") == "hidden")) {
             multi_x_fois.style.visibility = "hidden"
         } else {
             auto_x_fois.removeAttribute("style")
         }
-        if ((scoreStorage.getItem("Status_multi_x_fois") === "hidden")) {
+        if ((scoreStorage.getItem("Status_multi_x_fois") == "hidden")) {
             multi_x_fois.style.visibility = "hidden"
         } else {
             multi_x_fois.removeAttribute("style")
         }
-        if ((scoreStorage.getItem("StatusclikSec") === "hidden")) {
-            cps.style.visibility = "hidden"
-        } else {
+        if ((scoreStorage.getItem("StatusclikSec") == "hidden")) {
             cps.removeAttribute("style")
+            console.log("ok")
+        } else {
+
+            cps.style.visibility = "hidden"
+            console.log("")
         }
         show(credit, btnMultiplier, coutMultiplier);
         show(credit, btnAutoClicker, coutAutoClick);
@@ -250,6 +256,7 @@ var xAuto = document.getElementById('x_auto')
 var mouseCursor = document.getElementById("cursor_top")
 var mouseCursor_back = document.getElementById('cursor_back')
 const btnMenu = document.getElementById("settings")
+btnLoad.style.cursor = "not-allowed"
     /*variable audio
      */
 let sfx_bite = new Audio()
@@ -418,11 +425,12 @@ let showPower = () => {
         point.style.left = x_cord
         point.style.position = "absolute"
         point.style.fontFamily = "Montserrat"
-        point.style.width = 3 + "rem"
-        point.style.height = 3 + "rem"
+        point.style.fontSize = 2 + "rem"
+        point.style.width = 5 + "rem"
+        point.style.height = 5 + "rem"
         point.style.color = "#053742"
         document.getElementById("x" + co_x).style.pointerEvents = "none"
-        document.getElementById("x" + co_x).style.animation = "GoUp 2s forwards linear";
+        document.getElementById("x" + co_x).style.animation = "GoUp 0.5s forwards linear";
 
         elem.innerHTML = "+" + clickPower
 
@@ -463,5 +471,7 @@ btnReset.addEventListener("click", () => {
     reset()
 })
 btnLoad.addEventListener("click", () => {
+    console.table(scoreStorage)
+
     initCookie()
 })
