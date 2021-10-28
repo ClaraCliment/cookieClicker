@@ -21,12 +21,21 @@ at the end we merged the two phases and started the testing phase to find bugs a
 
 - Bonus
 
+- Save & Load Buttons
+
+- Bite Cursor animation
+
+- SFX and Music (composed by Nicolas)
+
+- Bonus sounds & animation (in progress)
+
 
 ## Team
 ---
 
 - Front-end web development -> Clara Climent  
-- Project management -> Ivan D'Andrea 
+- Project management & full stack dev -> Ivan D'Andrea 
 - Back-end web development -> Samir Nacer
+- Full stack deve -> Nicolas Valiacas
 
 
