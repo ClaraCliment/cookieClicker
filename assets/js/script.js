@@ -435,10 +435,10 @@ let showPower = () => {
             // timing options
             duration: 1000,
         })
-        setTimeout(() => {
+        setInterval(() => {
             removeElementsByClass("s")
 
-        }, 5000)
+        }, 50)
         elem.innerHTML = "+" + clickPower
     }
     /**
