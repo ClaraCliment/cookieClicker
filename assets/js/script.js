@@ -174,8 +174,6 @@ let save = () => {
     console.table(scoreStorage)
 }
 let initCookie = () => {
-
-
         credit = Number(scoreStorage.getItem("Score"))
         coutMultiplier = Number(scoreStorage.getItem("MultiplierPrice"))
         coutAutoClick = Number(scoreStorage.getItem("AutoClickPrice"))
@@ -215,8 +213,6 @@ let initCookie = () => {
         show(credit, btnAutoClicker, coutAutoClick);
         showBonus(credit, btnBonus, coutBonus)
         updateScore()
-
-
     }
     /*Bite animation
      */
@@ -296,6 +292,8 @@ Update Score
 Check aviability for bonus
 */
 cookieClicker.addEventListener("click", (e) => {
+
+        showPower(e)
         cursorBite(e)
         sfx_bite.play()
         credit = credit + clickPower
@@ -388,7 +386,7 @@ cookieClicker.addEventListener("mousemove", cursorin)
 function cursorin(e) {
     mouseCursor.style.top = e.pageY + "px";
     mouseCursor.style.left = e.pageX + "px";
-    mouseCursor_back.style.top = e.pageY + 40 + "px";
+    mouseCursor_back.style.top = e.pageY + 25 + "px";
     mouseCursor_back.style.left = e.pageX + "px";
 }
 cookieClicker.addEventListener("mouseout", cursorout)
@@ -397,6 +395,36 @@ function cursorout(e) {
     mouseCursor.removeAttribute("style")
     mouseCursor_back.removeAttribute("style")
 }
+/*--------
+Pwer BUtton
+*/
+var co_x = 0
+let showPower = (e) => {
+    co_x++
+    let elem = document.createElement("div")
+    cookieClicker.append(elem)
+    elem.setAttribute("id", "x" + co_x)
+    document.getElementById("x" + co_x).style.top = e.pageY + "px"
+    document.getElementById("x" + co_x).style.left = e.pageX + "px"
+        // document.getElementById("x" + co_x).style.display = "none"
+    document.getElementById("x" + co_x).style.position = "absolute"
+    document.getElementById("x" + co_x).style.width = 25 + "px"
+    document.getElementById("x" + co_x).style.height = 25 + "px"
+    document.getElementById("x" + co_x).style.color = "black"
+    document.getElementById("x" + co_x).style.fontWeight = "bold"
+    document.getElementById("x" + co_x).animate([
+        // 
+        { display: "block", opacity: 1 },
+        { top: 0 + "px", opacity: 0, display: "none" },
+
+    ], {
+        // timing options
+        duration: 1000
+    })
+    elem.innerHTML = "+" + clickPower
+
+}
+
 
 
 /**

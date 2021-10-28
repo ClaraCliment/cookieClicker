@@ -1,8 +1,18 @@
 @keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes GoUp {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        top: 0px;
+        opacity: 0;
+    }
 }
