@@ -148,6 +148,7 @@ body {
   main {
     display: flex;
     flex-direction: column;
+    min-height: 60vh;
   }
   // Main : partie score / clicks par seconde / Visuel cookie
   #score_and_counter {
@@ -466,6 +467,7 @@ body {
     main {
       display: flex;
       flex-direction: column;
+      min-height: 70vh;
     }
 
     #cookie_holder {
