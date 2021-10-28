@@ -47,7 +47,6 @@ at the end we merged the two phases and started the testing phase to find bugs a
 
 ![Final Mobile](./assets/img/SiteMobile.png)
 
-Is not Iphone Responsive :'(
 
 [Link Cookie Clicker](https://ivandandrea86.github.io/cookieClicker/)
 
