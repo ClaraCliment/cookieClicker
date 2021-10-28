@@ -29,6 +29,26 @@
   }
 }
 
+@-webkit-keyframes GoUp {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    opacity: 0;
+  }
+}
+
+@keyframes GoUp {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    opacity: 0;
+  }
+}
+
 .cursor {
   background-image: url("../img/dents_haut.png ");
   background-position: center;
@@ -55,24 +75,6 @@
           transform: translate(-100%, -100%);
   pointer-events: none;
   border-radius: 5%;
-}
-
-#rayon {
-  border: 1px solid red;
-  border-radius: 100%;
-  width: 185%;
-  height: 200%;
-  position: absolute;
-  z-index: -1;
-  background-image: url("../img/rayons.png");
-  background-size: cover;
-  background-position: center;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  overflow: hidden;
-  -webkit-animation: rotation 8s infinite linear;
-          animation: rotation 8s infinite linear;
 }
 
 :root {
@@ -345,6 +347,10 @@ body #cookie_holder {
   position: relative;
   height: 90%;
   width: 90%;
+  background-image: url(../img/cookies_groupe.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 body #cookie_holder #cookieClicker {
@@ -360,7 +366,7 @@ body #cookie_holder #rayon {
   width: 300px;
   height: 300px;
   padding: 0 20px;
-  z-index: -1;
+  z-index: -3;
   background-image: url("../img/rayon_1.png");
   background-size: cover;
   background-position: center;
@@ -377,7 +383,7 @@ body #cookie_holder #rayon2 {
   width: 300px;
   height: 300px;
   position: absolute;
-  z-index: -2;
+  z-index: -4;
   background-image: url("../img/rayon_2.png");
   background-size: cover;
   background-position: center;
@@ -631,6 +637,119 @@ body footer p {
   body #rayon2 {
     width: 300px;
     height: 400px;
+  }
+}
+
+@media only screen and (min-width: 1000px) and (orientation: portrait) {
+  body header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  body #logo {
+    width: 200px;
+    height: auto;
+  }
+  body main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body #cookie_holder {
+    margin-bottom: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    position: relative;
+    height: 90%;
+    width: 90%;
+  }
+  body #cookie_holder #cookieClicker {
+    min-width: 0%;
+    max-width: 65%;
+    height: auto;
+    padding: 0 20px;
+  }
+  body #cookie_holder #rayon {
+    border-radius: 100%;
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    padding: 0 20px;
+    z-index: -3;
+    background-image: url("../img/rayon_1.png");
+    background-size: cover;
+    background-position: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    overflow: hidden;
+    -webkit-animation: rotation 12s infinite linear;
+            animation: rotation 12s infinite linear;
+  }
+  body #cookie_holder #rayon2 {
+    border-radius: 100%;
+    width: 900px;
+    height: 900px;
+    position: absolute;
+    z-index: -4;
+    background-image: url("../img/rayon_2.png");
+    background-size: cover;
+    background-position: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    overflow: hidden;
+  }
+  body #buttons_holder {
+    background-color: none !important;
+    padding: 30px;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  body #buttons_holder .bouton {
+    color: var(--beige);
+    margin: 0.2rem;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 12px;
+    width: 120px;
+    position: relative;
   }
 }
 /*# sourceMappingURL=style.css.map */
