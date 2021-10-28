@@ -76,7 +76,7 @@ body {
   background: -webkit-gradient(linear, left top, left bottom, from(var(--bleu_light)), to(var(--bleu_ciel)));
   background: linear-gradient(var(--bleu_light), var(--bleu_ciel));
   font-family: "Montserrat", sans-serif;
-  height: 100vh;
+  min-height: 100vh;
   /* The switch - the box around the slider */
   /* Hide default HTML checkbox */
   /* The slider */
@@ -325,14 +325,48 @@ body #cookie_holder {
       -ms-flex-direction: row;
           flex-direction: row;
   position: relative;
-  height: 80%;
-  width: 80%;
+  height: 90%;
+  width: 90%;
 }
 
 body #cookie_holder #cookieClicker {
   min-width: 0%;
+  max-width: 75%;
   height: auto;
   padding: 0 20px;
+}
+
+body #cookie_holder #rayon {
+  border-radius: 100%;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  padding: 0 20px;
+  z-index: -1;
+  background-image: url("../img/rayon_1.png");
+  background-size: cover;
+  background-position: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  overflow: hidden;
+  -webkit-animation: rotation 12s infinite linear;
+          animation: rotation 12s infinite linear;
+}
+
+body #cookie_holder #rayon2 {
+  border-radius: 100%;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  z-index: -2;
+  background-image: url("../img/rayon_2.png");
+  background-size: cover;
+  background-position: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  overflow: hidden;
 }
 
 body #buttons_holder {
@@ -481,7 +515,7 @@ body footer p {
   font-size: 12px;
 }
 
-@media only screen and (min-width: 768px), (orientation: landscape) {
+@media only screen and (min-width: 769px), (orientation: landscape) {
   body header {
     width: 100%;
     display: -webkit-box;
@@ -528,8 +562,18 @@ body footer p {
         -ms-flex-pack: start;
             justify-content: flex-start;
   }
-  body main #score_and_counter #cookieClicker {
+  body main #score_and_counter #cookieClicker #cookieClicker {
+    min-width: 0%;
+    height: auto;
     padding: 0;
+  }
+  body main #score_and_counter #rayon {
+    width: 300px;
+    height: 300px;
+  }
+  body main #score_and_counter #rayon2 {
+    width: 350px;
+    height: 350px;
   }
   body main #buttons_holder {
     background-color: rgba(255, 255, 255, 0.6);
@@ -561,6 +605,14 @@ body footer p {
     font-size: 18px;
     padding-top: 0.2rem;
     padding-bottom: 0.6 rem !important;
+  }
+  body #rayon {
+    width: 300x;
+    height: 350px;
+  }
+  body #rayon2 {
+    width: 300px;
+    height: 400px;
   }
 }
 /*# sourceMappingURL=style.css.map */
