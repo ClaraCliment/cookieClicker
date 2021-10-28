@@ -1,4 +1,6 @@
-// const {Howl, Howler} = require('howler');
+import * as anime from './animation.js'
+// import * as myModule from '/modules/my-module.js';
+
 /*------------
 Functions
 ----------*/
@@ -58,6 +60,7 @@ let finish = () => {
      * Start Function
      */
 let start = () => {
+        anime.init()
         clickPower = clickPower * 2
         intervalId = setInterval(bonus, 1000);
     }
@@ -282,6 +285,9 @@ var autocounter = 0
 var multicounter = 0
 var b = 30
 var img_index = 2
+var x_cord
+var y_cord
+var co_x = 0
 labelMultiplier.innerHTML = "Multiclick " + coutMultiplier;
 labelAutoClicker.innerHTML = "Autoclick " + coutAutoClick;
 labelBonus.innerHTML = "Bonus " + coutBonus;
@@ -291,10 +297,17 @@ Increse Score
 Update Score
 Check aviability for bonus
 */
+function removeElementsByClass(classname) {
+    var elements = document.getElementsByClassName(classname);
+    while (elements.length > 0) {
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+}
 cookieClicker.addEventListener("click", (e) => {
+        showPower()
 
-        showPower(e)
         cursorBite(e)
+        console.log(e)
         sfx_bite.play()
         credit = credit + clickPower
         updateScore()
@@ -356,6 +369,7 @@ btnAutoClicker.addEventListener('click', () => {
     Check aviability for bonus
     */
 btnBonus.addEventListener("click", () => {
+
         credit = credit - coutBonus
         coutBonus = coutBonus * 4
         start()
@@ -370,17 +384,15 @@ btnBonus.addEventListener("click", () => {
     Open And Close settings pop up menu
     */
 btnMenu.addEventListener("click", () => {
-    if (!isopen()) {
-        let menu = document.getElementById("menu_settings")
-        menu.removeAttribute("style")
-        console.log("open")
-    } else { hide() }
-})
-
-
-/*--------------
-Mouth animation
--------------*/
+        if (!isopen()) {
+            let menu = document.getElementById("menu_settings")
+            menu.removeAttribute("style")
+            console.log("open")
+        } else { hide() }
+    })
+    /*--------------
+    Mouth animation
+    -------------*/
 cookieClicker.addEventListener("mousemove", cursorin)
 
 function cursorin(e) {
@@ -398,38 +410,46 @@ function cursorout(e) {
 /*--------
 Pwer BUtton
 */
-var co_x = 0
-let showPower = (e) => {
-    co_x++
-    let elem = document.createElement("div")
-    cookieClicker.append(elem)
-    elem.setAttribute("id", "x" + co_x)
-    document.getElementById("x" + co_x).style.top = e.pageY + "px"
-    document.getElementById("x" + co_x).style.left = e.pageX + "px"
-        // document.getElementById("x" + co_x).style.display = "none"
-    document.getElementById("x" + co_x).style.position = "absolute"
-    document.getElementById("x" + co_x).style.width = 25 + "px"
-    document.getElementById("x" + co_x).style.height = 25 + "px"
-    document.getElementById("x" + co_x).style.color = "black"
-    document.getElementById("x" + co_x).style.fontWeight = "bold"
-    document.getElementById("x" + co_x).animate([
-        // 
-        { display: "block", opacity: 1 },
-        { top: 0 + "px", opacity: 0, display: "none" },
+cookieClicker.addEventListener("mousemove", find_cord)
 
-    ], {
-        // timing options
-        duration: 1000
-    })
-    elem.innerHTML = "+" + clickPower
-
+function find_cord(e) {
+    y_cord = e.layerY + "px";
+    x_cord = e.layerX + "px";
 }
+let showPower = () => {
+        co_x++
+        let elem = document.createElement("div")
+        cookieClicker.append(elem)
+        elem.setAttribute("id", "x" + co_x)
+        elem.classList.add("s")
+        let point = document.getElementById("x" + co_x)
+        point.style.top = y_cord
+        point.style.left = x_cord
+        point.style.position = "absolute"
+        point.style.fontFamily = "Montserrat"
+        point.style.width = 2 + "rem"
+        point.style.height = 2 + "rem"
+        point.style.color = "#053742"
+        document.getElementById("x" + co_x).style.pointerEvents = "none"
+        point.animate([
+            // 
+            { opacity: 1 },
+            { top: y_cord * 0.5, opacity: 1 },
+            { top: -250 + "px", opacity: 0, }
 
+        ], {
+            // timing options
+            duration: 1000,
+        })
+        setTimeout(() => {
+            removeElementsByClass("s")
 
-
-/**
- * Audio Event SFX
- */
+        }, 5000)
+        elem.innerHTML = "+" + clickPower
+    }
+    /**
+     * Audio Event SFX
+     */
 var checkbox = document.getElementById("sfx")
 checkbox.addEventListener('change', (event) => {
         if (event.currentTarget.checked) {
@@ -452,7 +472,6 @@ checkbox.addEventListener('change', (event) => {
         music.volume = "0"
     }
 })
-
 btnSave.addEventListener("click", () => {
         save()
     })
