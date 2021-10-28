@@ -45,7 +45,7 @@ at the end we merged the two phases and started the testing phase to find bugs a
 
 ![Site Final](./assets/img/SiteFinal.png)
 
-![Final Mobile](./assets/img/SiteMobile)
+![Final Mobile](./assets/img/SiteMobile.png)
 
 Is not Iphone Responsive :'(
 
