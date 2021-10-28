@@ -221,12 +221,23 @@ body {
     position: relative;
     height: 90%;
     width: 90%;
+    background-image: url(../img/cookies_groupe.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     #cookieClicker {
       min-width: 0%;
       max-width: 75%;
       height: auto;
       padding: 0 20px;
     }
+
+    // #cookie_fond,
+    // #cookie_fond2 {
+    //   height: 25px;
+    //   width: auto;
+    //   z-index: -2;
+    // }
 
     #rayon {
       //border: 2px solid red;
@@ -235,7 +246,7 @@ body {
       width: 300px;
       height: 300px;
       padding: 0 20px;
-      z-index: -1;
+      z-index: -3;
       background-image: url("../img/rayon_1.png");
       background-size: cover;
       background-position: center;
@@ -249,7 +260,7 @@ body {
       width: 300px;
       height: 300px;
       position: absolute;
-      z-index: -2;
+      z-index: -4;
       background-image: url("../img/rayon_2.png");
       background-size: cover;
       background-position: center;
@@ -435,6 +446,96 @@ body {
       //border: 1px solid red;
       width: 300px;
       height: 400px;
+    }
+  }
+
+  // Mobil landscape
+  @media only screen and (min-width: 1000px) and (orientation: portrait) {
+    // Main-------------------------------------------------------------
+    // Counter & cookie
+
+    header {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #logo {
+      width: 200px;
+      height: auto;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #cookie_holder {
+      //border: 2px solid red;
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-wrap: wrap;
+      flex-direction: row;
+      position: relative;
+      height: 90%;
+      width: 90%;
+
+      #cookieClicker {
+        min-width: 0%;
+        max-width: 65%;
+        height: auto;
+        padding: 0 20px;
+      }
+
+      #rayon {
+        border-radius: 100%;
+        position: absolute;
+        width: 900px;
+        height: 900px;
+        padding: 0 20px;
+        z-index: -3;
+        background-image: url("../img/rayon_1.png");
+        background-size: cover;
+        background-position: center;
+        align-self: center;
+        overflow: hidden;
+        animation: rotation 12s infinite linear;
+      }
+      #rayon2 {
+        //border: 2px solid red;
+        border-radius: 100%;
+        width: 900px;
+        height: 900px;
+        position: absolute;
+        z-index: -4;
+        background-image: url("../img/rayon_2.png");
+        background-size: cover;
+        background-position: center;
+        align-self: center;
+        overflow: hidden;
+      }
+    }
+    // Dans le main: partie boutons du jeu
+    #buttons_holder {
+      background-color: none !important;
+      padding: 30px;
+      justify-content: space-evenly;
+      display: flex;
+      flex-direction: row !important;
+      align-items: center;
+      flex-wrap: wrap;
+      .bouton {
+        color: var(--beige);
+        margin: 0.2rem;
+        padding: 0.6rem;
+        border: none;
+        border-radius: 50px;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 12px;
+        width: 120px;
+        position: relative;
+      }
     }
   }
 }
