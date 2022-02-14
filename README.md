@@ -1,5 +1,9 @@
 # Cookie-Clicker v1.00
 
+## See the project online
+---
+💻 [Link Cookie Clicker](https://ivandandrea86.github.io/cookieClicker/)
+
 ## Instruction
 ---
 Click on the big Cookie to earn more cookies.
@@ -46,7 +50,4 @@ at the end we merged the two phases and started the testing phase to find bugs a
 ![Site Final](./assets/img/SiteFinal.png)
 
 ![Final Mobile](./assets/img/SiteMobile.png)
-
-
-[Link Cookie Clicker](https://ivandandrea86.github.io/cookieClicker/)
 
